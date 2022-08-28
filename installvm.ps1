@@ -1,5 +1,4 @@
 param(
-    [# Parameter help description]
     [Parameter(Mandatory=$true)][string] $RGLocation,
     [Parameter(Mandatory=$true)][string] $RGName
 )
@@ -15,7 +14,7 @@ Write-host "----------------------------------------------------"
 $RGStatus = az group exists -n $RGName
 az group create -l $RGLocation -n $RGName
 
-if ($RGStatus -eq FALSE)
+if ($RGStatus -eq $false)
 {
     az group create -l $RGLocation -n $RGName
 }
@@ -24,5 +23,4 @@ else{
 }
 #======================
 Write-Host "End of Script ($ScriptName)"
-
 
